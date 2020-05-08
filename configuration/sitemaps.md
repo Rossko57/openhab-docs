@@ -388,14 +388,14 @@ Mapview item=Demo_Location height=5
 ### Element Type 'Image'
 
 ```perl
-Image [item=<itemname>] [icon="<iconname>"] url="<url of image>" [label="<labelname>"] [refresh=xxxx]
+Image [item=<itemname>] [icon="<iconname>"] [url="<url of image>"] [label="<labelname>"] [refresh=xxxx]
 ```
 
 This element type is able to present an image.
 The image must be available on a reachable website or webserver without password or access token.
 Alternatively, the image file (e.g. YourImageFile.png) may be stored locally in the $OPENHAB_CONF/html folder, and will be accessible through the static route, http://<my.openHAB.device>:8080/static/YourImageFile.png.
 
-- `item` can refer to either an Image Item whose state is the raw data of the image, or a String Item whose state is an URL that points to an image. Some clients may not (yet) consider `item`.
+- `item` can refer to either an Image Item whose state is the raw data of the image, or to a String Item whose state is an URL that points to an image. Some clients may not (yet) consider `item`.
 - `url` is the default URL from which to retrieve the image, if there is no associated Item or if the associated item's state is not a URL.
 - `refresh` is the refresh period of the image in milliseconds ("60000" for minutely updates).
 
@@ -403,6 +403,8 @@ Alternatively, the image file (e.g. YourImageFile.png) may be stored locally in 
 
 ```perl
 Image url="https://raw.githubusercontent.com/wiki/openhab/openhab/images/features.png"
+Image item=myBinary    // where myBinary is an Image type Item with e.g. GIF content
+Image item=myLink      // where myLink is aString type Item with state e.g. "http://localhost:8080/static/splash.png"
 ```
 
 ![Presentation of the Image element in BasicUI](images/sitemap_demo_image.png)

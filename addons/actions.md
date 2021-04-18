@@ -142,7 +142,7 @@ One must import the Semantics Action and then call the above functions using `Se
 
 `createTimer(AbstractInstant instant, Procedure procedure)`: schedules a block of code to execute at a future time
 
-- `instant` is usually a `DateTime` calculated using the built in variable `now`.
+- `instant` is usually a `ZonedDateTime`,often calculated using the built in variable `now`.
 - `procedure` is the block of code and is defined using lambda notation (i.e. square brackets)
 
 For example:
